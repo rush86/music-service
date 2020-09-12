@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <springProperty scope="context" name="environment" source="spring.profiles.active" defaultValue="localhost"/>
+    <springProperty scope="context" name="app_name" source="spring.application.name" defaultValue="monty-hall-app"/>
+    <springProperty scope="context" name="app_version" source="spring.application.version" />
+    <property name="log.home" value="/var/log/monty-hall-app"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <logger name="com.montyhall" level="INFO"/>
+
+    <!-- localhost, logs on console -->
+    <springProfile name="localhost">
+        <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+</configuration>

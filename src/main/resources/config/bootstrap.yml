@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: spring-skeleton-project
+
+  profiles:
+      active: ${environment:localhost}
+
+  flyway:
+    locations: classpath:/db/migration
+
+  output:
+    ansi:
+      enabled: always
+  main:
+    allow-bean-definition-overriding: true
+
+  jmx:
+    enabled: false
+
+server:
+  port: 8086
+
+management:
+  endpoint:
+    health:
+      show-details: always
+
+database:
+  url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+  username: sa
+  password: sa
+  poolSize: 4
+  driver-class-name: org.h2.Driver

@@ -1,0 +1,42 @@
+= Spring Boot Skeleton App
+:toc:
+
+== Summary
+
+This is a skeleton spring boot app
+
+== Development Quickstart Guide
+
+=== Local Development Environment
+
+==== Technology Stack
+====
+- Java 13
+- Maven 3.8
+- Spring boot 2.3.3
+====
+
+==== Start the app
+This app has a spring boot back-end.
+
+* Start the back-end
+====
+  mvn clean install
+  java -Denvironment=localhost  -jar target/skeleton-0.1-SNAPSHOT.jar
+====
+
+==== Database
+It's an In-memory H2 database and gets intialized with some static data everytime the application is started.
+
+Note: Database objects are deployed using Flyway migration.
+
+
+==== Tests
+The tests are written in Junit4. These are Integration tests which calls the REST endpoints and execute them in real-time using the database.
+None of the tests are mocked.
+
+== Runtime Environment and Deployment
+
+* *Swagger* +
+    http://localhost:8086/swagger-ui.html +
+
