@@ -1,11 +1,14 @@
 package com.skelton.api;
 
-import com.skelton.exception.UnauthorizedException;
-import com.skelton.model.api.ErrorCode;
 import static com.skelton.model.api.ErrorCode.INVALID_ARGUMENT;
 import static com.skelton.model.api.ErrorCode.UNAUTHORIZED_ACTIVITY;
 import static com.skelton.model.api.ErrorCode.UNEXPECTED_ERROR;
+
+import com.skelton.exception.UnauthorizedException;
+import com.skelton.model.api.ErrorCode;
 import com.skelton.model.api.ErrorDTO;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -13,9 +16,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
-
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 @RestControllerAdvice
 public class ApiExceptionHandler {

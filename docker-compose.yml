@@ -1,0 +1,14 @@
+version: '3'
+services:
+    skeleton-service:
+        container_name: skeleton-project
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8086:8086"
+        networks:
+            - internal-network
+networks:
+    internal-network:
+        driver: bridge

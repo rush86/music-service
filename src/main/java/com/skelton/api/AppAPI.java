@@ -1,24 +1,24 @@
 package com.skelton.api;
 
 import com.skelton.aggregator.AppAggregator;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/")
+@Slf4j
 public class AppAPI {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final AppAggregator appAggregator;
 
-    @Autowired
     public AppAPI(AppAggregator appAggregator) {
         this.appAggregator = appAggregator;
     }
 
-
+    @GetMapping("/test")
+    public String testApi() {
+        return "Hello World from Test Controller!";
+    }
 }
