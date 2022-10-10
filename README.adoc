@@ -1,9 +1,7 @@
-= Spring Boot Skeleton App
+= Music Service
 :toc:
 
 == Summary
-
-This is a skeleton spring boot app
 
 == Development Quickstart Guide
 
@@ -11,9 +9,9 @@ This is a skeleton spring boot app
 
 ==== Technology Stack
 ====
-- Java 13
+- Java 17
 - Maven 3.8
-- Spring boot 2.3.3
+- Spring boot 2.6.6
 ====
 
 ==== Start the app
@@ -22,21 +20,26 @@ This app has a spring boot back-end.
 * Start the back-end
 ====
   mvn clean install
-  java -Denvironment=localhost  -jar target/skeleton-0.1-SNAPSHOT.jar
+  java -Denvironment=localhost  -jar target/music-service-0.1-SNAPSHOT.jar
 ====
-
-==== Database
-It's an In-memory H2 database and gets intialized with some static data everytime the application is started.
-
-Note: Database objects are deployed using Flyway migration.
 
 
 ==== Tests
-The tests are written in Junit4. These are Integration tests which calls the REST endpoints and execute them in real-time using the database.
-None of the tests are mocked.
+
+The tests are written in Junit5. 
+There is one unit test to test integration to Music Brainz API using MockWebServer.
+
+MusicServiceApiITTest.java:
+This is an Integration test that performs the required operation using Wiremock to mock external API.
 
 == Runtime Environment and Deployment
+curl --location --request GET 'http://localhost:8086/musify/music-artist/details/f27ec8db-af05-4f36-916e-3d57f91ecf5e'
 
-* *Swagger* +
-    http://localhost:8086/swagger-ui.html +
+== Test Data
+* MBID: f27ec8db-af05-4f36-916e-3d57f91ecf5e 
+* MBID: 
+* MBID: 
 
+== Notes:
+* Only Music Brainz API is implemented in real time. Data for Other 3 APIs is hard-coded in application memory to avoid implementing same boilerplate logic.
+* 
