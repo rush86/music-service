@@ -37,9 +37,10 @@ curl --location --request GET 'http://localhost:8086/musify/music-artist/details
 
 == Test Data
 * MBID: f27ec8db-af05-4f36-916e-3d57f91ecf5e 
-* MBID: 
-* MBID: 
+* MBID: 5b11f4ce-a62d-471e-81fc-a69a8278c7da
+* MBID: f7f32d93-0801-45cb-9f5a-e68f640649f4
 
 == Notes:
 * Only Music Brainz API is implemented in real time. Data for Other 3 APIs is hard-coded in application memory to avoid implementing same boilerplate logic.
-* 
+* Given the nature of the data in this exercise, in real world I would not rely on fetching from 4 different sources on runtime. 
+  With more time to spend, I would implement a cache or db layer that stores the data and can be used to along with a Circuit breaker implementation to mitigate downstream latency risks.

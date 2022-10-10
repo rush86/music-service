@@ -18,7 +18,83 @@ public class WikidataClient {
   public WikidataClient() throws JsonProcessingException {
 
     WIKIDATA_MAP = new HashMap<>();
-    JsonNode dataInput = objectMapper.readTree("""
+    WIKIDATA_MAP.put("https://www.wikidata.org/wiki/Q2831", getDataByUrl("https://www.wikidata.org/wiki/Q2831"));
+    WIKIDATA_MAP.put("https://www.wikidata.org/wiki/Q4036392", getDataByUrl("https://www.wikidata.org/wiki/Q4036392"));
+    WIKIDATA_MAP.put("", getDataByUrl(""));
+  }
+
+  public WikidataResponse getWikidataByLink(String wikidataLink) throws JsonProcessingException {
+    return objectMapper.treeToValue(WIKIDATA_MAP.get(wikidataLink), WikidataResponse.class);
+  }
+
+  private JsonNode getDataByUrl(String url) throws JsonProcessingException {
+    if (url.equals("https://www.wikidata.org/wiki/Q4036392")) {
+      return objectMapper.readTree("""
+     {
+          "pageid": 3846861,
+          "ns": 0,
+          "title": "Q4036392",
+          "lastrevid": 1743193293,
+          "modified": "2022-10-04T21:25:00Z",
+          "type": "item",
+          "id": "Q4036392",
+          "sitelinks": {
+            "commonswiki": {
+              "site": "commonswiki",
+              "title": "Category:Cold Cave",
+              "badges": [],
+              "url": "https://commons.wikimedia.org/wiki/Category:Cold_Cave"
+            },
+            "dawiki": {
+              "site": "dawiki",
+              "title": "Cold Cave",
+              "badges": [],
+              "url": "https://da.wikipedia.org/wiki/Cold_Cave"
+            },
+            "enwiki": {
+              "site": "enwiki",
+              "title": "Cold Cave",
+              "badges": [],
+              "url": "https://en.wikipedia.org/wiki/Cold_Cave"
+            }
+          }
+        }
+    """);
+    }
+
+    if (url.equals("https://www.wikidata.org/wiki/Q11649")) {
+      return objectMapper.readTree("""
+    {
+      "pageid": 13180,
+      "ns": 0,
+      "title": "Q11649",
+      "lastrevid": 1747510338,
+      "modified": "2022-10-10T14:26:45Z",
+      "type": "item",
+      "id": "Q11649",
+      "sitelinks": {
+        "enwiki": {
+          "site": "enwiki",
+          "title": "Nirvana (band)",
+          "badges": [
+            "Q17437796"
+          ],
+          "url": "https://en.wikipedia.org/wiki/Nirvana_(band)"
+        },
+        "enwikiquote": {
+          "site": "enwikiquote",
+          "title": "Nirvana (band)",
+          "badges": [
+    
+          ],
+          "url": "https://en.wikiquote.org/wiki/Nirvana_(band)"
+        }
+      }
+    }
+    """);
+    }
+
+    return objectMapper.readTree("""
     {
               "pageid": 3813,
               "ns": 0,
@@ -51,11 +127,5 @@ public class WikidataClient {
               }
             }
     """);
-    WIKIDATA_MAP.put("https://www.wikidata.org/wiki/Q2831", dataInput);
-    //WIKIDATA_MAP.put("", "");
-  }
-
-  public WikidataResponse getWikidataByLink(String wikidataLink) throws JsonProcessingException {
-    return objectMapper.treeToValue(WIKIDATA_MAP.get(wikidataLink), WikidataResponse.class);
   }
 }

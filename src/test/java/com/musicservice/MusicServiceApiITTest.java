@@ -72,7 +72,7 @@ public class MusicServiceApiITTest {
     assertNotNull(result.getHeaders().get("Cache-Control"));
     assertEquals("US", result.getBody().country());
     assertEquals("f27ec8db-af05-4f36-916e-3d57f91ecf5e", result.getBody().mbid());
-    assertTrue(result.getBody().musicAlbumDTOS().size() == 25);
+    assertTrue(result.getBody().albums().size() == 25);
   }
 
   @Test

@@ -23,6 +23,10 @@ public class CoverArtArchiveClient {
         """);
     COVER_ART_MAP.put("97e0014d-a267-33a0-a868-bb4e2552918a", dataInput);
     COVER_ART_MAP.put("f32fab67-77dd-3937-addc-9062e28e4c37", dataInput);
+    COVER_ART_MAP.put("d1176776-3445-460a-93a5-72c01c539af7", dataInput);
+    COVER_ART_MAP.put("d9aeaf26-3c67-49d0-bd07-0b8bb16c92cd", dataInput);
+    COVER_ART_MAP.put("f1afec0b-26dd-3db5-9aa1-c91229a74a24", dataInput);
+    COVER_ART_MAP.put("1b022e01-4da6-387b-8658-8678046e4cef", dataInput);
   }
 
   public CoverArtArchiveResponse getCoverArtByMbid(String id)  {
