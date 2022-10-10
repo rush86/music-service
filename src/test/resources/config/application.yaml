@@ -1,9 +1,6 @@
 spring:
   application:
-    name: spring-boot-skeleton
-
-  flyway:
-    locations: classpath:/db/migration
+    name: music-service
 
   profiles:
       active: localhost
@@ -20,14 +17,12 @@ spring:
 server:
   port: 8080
 
+service:
+  music-brainz:
+    api:
+      url: http://musicbrainz.org/ws/2
+
 management:
   endpoint:
     health:
       show-details: always
-
-database:
-  url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
-  username: sa
-  password: sa
-  poolSize: 4
-  driver-class-name: org.h2.Driver

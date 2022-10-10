@@ -1,7 +1,7 @@
 version: '3'
 services:
-    skeleton-service:
-        container_name: skeleton-project
+    music-service:
+        container_name: music-service
         build:
             context: .
             dockerfile: Dockerfile

@@ -12,8 +12,8 @@ ${AnsiColor.RED}
 
 ${AnsiColor.BLUE}
 ==================================================================================================================
-  Namespace: Spring Boot Skeleton
-  Service  : Spring Boot Skeleton
+  Namespace: Music
+  Service  : Music Service
 
   App name   : ${application.title}
   App version: ${application.version}
